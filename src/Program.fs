@@ -3,6 +3,7 @@ open Farmtrace.DataAccess
 open Farmtrace.BusinessRules
 open Farmtrace.Reports
 
+// Change these dates for reports
 let startDate = DateTime(2021, 10, 01)
 let endDate = DateTime(2021, 11, 01)
 

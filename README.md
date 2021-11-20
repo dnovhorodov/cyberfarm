@@ -21,3 +21,9 @@ Demonstrates reading and pasing the raw json data, input validation against busi
    ```bash
    dotnet run
    ```
+
+3. Build & Run in docker:
+   ```bash
+   docker build -t cyberfarm .
+   docker run --rm cyberfarm
+   ```

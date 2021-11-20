@@ -14,4 +14,5 @@ FROM mcr.microsoft.com/dotnet/runtime-deps:$RUNTIME_VERSION AS base
 WORKDIR /app
 
 COPY --from=build /app/out .
+COPY ./data/ ./data
 ENTRYPOINT ["./Farmtrace"]
