@@ -3,6 +3,10 @@ module Farmtrace.Reports
 open Domain
 open System
 
+(*
+    Queries for reports on farm animals data
+*)
+
 let getTotalProductionOfMilk animalType startDate endDate farmAnimals = 
     farmAnimals
         |> Seq.choose (fun a -> 

@@ -4,6 +4,9 @@ open System
 open Domain
 open DataAccess
 
+(*
+    Business rules for validating farm data
+*)
 [<AutoOpen>]
 module ActivePatterns = 
 
@@ -54,6 +57,9 @@ module private FarmAnimal =
             Goat { Id = id; Type = animalType; Feedings = feedings; Milkings = milkings }
         | _ -> Other animalType
 
+(*
+    Public function to create a validated animal from raw input
+*)
 let create animalType id (feedings: ActionDto array) (milkings: ActionDto array) =
     let feeds = 
         feedings |> Array.choose(fun f -> 
@@ -73,6 +79,9 @@ let create animalType id (feedings: ActionDto array) (milkings: ActionDto array)
 
     createAnimal animalType id feeds milks
 
+(*
+    Parse JSON data to domain models
+*)
 let parse (data: FarmData.Root[]) =
     data
     |> Seq.map(fun farm -> 

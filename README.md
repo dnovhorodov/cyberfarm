@@ -10,6 +10,12 @@ Demonstrates reading and pasing the raw json data, input validation against busi
 
 ## Getting Started
 
+0. Change *startDate* and *endDate* in **Program.fs** to get some reports
+   ```fsharp
+   let startDate = DateTime(2021, 10, 01)
+   let endDate = DateTime(2021, 11, 01)
+   ```
+
 1. Build console application:
 
    ```bash
@@ -22,7 +28,7 @@ Demonstrates reading and pasing the raw json data, input validation against busi
    dotnet run
    ```
 
-3. Build & Run in docker:
+OR Build & Run in docker:
    ```bash
    docker build -t cyberfarm .
    docker run --rm cyberfarm
