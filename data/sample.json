@@ -1,0 +1,48 @@
+[
+    {
+        "Name": "Labadie - Lesch - Farm",
+        "Animals": [
+            {
+                "Id": 0,
+                "Sex": "Female",
+                "AnimalType": "Cow",
+                "Feedings": [
+                    {
+                        "DateTime": "2021-10-01T10:32:00",
+                        "Amount": 25
+                    },
+                    {
+                        "DateTime": "2021-10-01T18:16:00",
+                        "Amount": 26
+                    }
+                ],
+                "Milkings": [
+                    {
+                        "DateTime": "2021-10-01T09:38:00",
+                        "Amount": 28
+                    },
+                    {
+                        "DateTime": "2021-10-01T17:01:00",
+                        "Amount": 0
+                    }
+                ]
+            },
+            {
+                "Id": 16,
+                "Sex": "Male",
+                "AnimalType": "Cow",
+                "Feedings": [
+                    {
+                        "DateTime": "2021-10-01T08:40:00",
+                        "Amount": 5
+                    },
+                    {
+                        "DateTime": "2021-10-01T18:01:00",
+                        "Amount": 16
+                    }
+                ],
+                "Milkings": null
+            }
+        ]
+    }
+]

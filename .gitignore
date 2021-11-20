@@ -1,0 +1,6 @@
+.ionide
+.vs
+obj
+bin
+.fake
+cert/
