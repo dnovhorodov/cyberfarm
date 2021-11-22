@@ -1,3 +1,5 @@
+[![Docker Image CI](https://github.com/dnovhorodov/cyberfarm/actions/workflows/docker-image.yml/badge.svg)](https://github.com/dnovhorodov/cyberfarm/actions/workflows/docker-image.yml)
+
 # Cyber Farm
 
 Sample of import, process and analysis of farm data
