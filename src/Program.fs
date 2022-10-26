@@ -19,7 +19,7 @@ let cowsAte = animals |> getTotalAmountOfFood Cow startDate endDate
 let goatsAte = animals |> getTotalAmountOfFood Goat startDate endDate
 let top10producers = animals |> getTop10BestProducingAnimals startDate endDate
 
-printfn "               Hello from Farmtrace cyberfarm               "
+printfn "               Hello from Farmtrace F# cyberfarm            "
 printfn "============================================================"
 printfn $"Here the report from the farms..."
 printfn $"From: {startDate} to {endDate}"
@@ -27,7 +27,7 @@ printfn "============================================================"
 printfn $"Milk produced by cows: {cowsMilkings} kg"
 printfn $"Milk produced by goats: {goatsMilkings} kg"
 printfn $"Cows ate: {cowsAte} kg"
-printfn $"Goats ate: {cowsAte} kg"
+printfn $"Goats ate: {goatsAte} kg"
 printfn ""
 printfn $"Top 10 best producing animals [by id's]:"
 printfn $"%A{top10producers}"
