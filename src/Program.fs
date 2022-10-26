@@ -15,8 +15,8 @@ let animals = data |> parse |> Seq.collect (fun a -> a.Animals)
 // Run various reports on the validated data
 let cowsMilkings = animals |> getTotalProductionOfMilk Cow startDate endDate
 let goatsMilkings = animals |> getTotalProductionOfMilk Goat startDate endDate
-let cowsEated = animals |> getTotalAmountOfFood Cow startDate endDate
-let goatsEated = animals |> getTotalAmountOfFood Goat startDate endDate
+let cowsAte = animals |> getTotalAmountOfFood Cow startDate endDate
+let goatsAte = animals |> getTotalAmountOfFood Goat startDate endDate
 let top10producers = animals |> getTop10BestProducingAnimals startDate endDate
 
 printfn "               Hello from Farmtrace cyberfarm               "
@@ -26,8 +26,8 @@ printfn $"From: {startDate} to {endDate}"
 printfn "============================================================"
 printfn $"Milk produced by cows: {cowsMilkings} kg"
 printfn $"Milk produced by goats: {goatsMilkings} kg"
-printfn $"Cows ate: {cowsEated} kg"
-printfn $"Goats ate: {cowsEated} kg"
+printfn $"Cows ate: {cowsAte} kg"
+printfn $"Goats ate: {cowsAte} kg"
 printfn ""
 printfn $"Top 10 best producing animals [by id's]:"
 printfn $"%A{top10producers}"
