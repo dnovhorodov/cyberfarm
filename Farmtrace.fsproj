@@ -7,9 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="./src/Domain.fs" />
     <Compile Include="./src/DataAccess.fs" />
+    <Compile Include="./src/Domain.fs" />
     <Compile Include="./src/BusinessRules.fs" />
+    <Compile Include="src\Utils.fs" />
     <Compile Include="./src/Reports.fs" />
     <Compile Include="./src/Program.fs" />
   </ItemGroup>

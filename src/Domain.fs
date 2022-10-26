@@ -5,19 +5,16 @@ open System
 type Feeding = Feeding of datetime : DateTime * amount : int
 type Milking = Milking of datetime : DateTime * amount : int
 
+type AnimalKind = | Cow | Goat | Other
+
 type Animal = {
     Id: int
-    Type: string
+    Kind: AnimalKind
     Feedings: Feeding list
     Milkings: Milking list
 }
 
-type FarmAnimal = 
-    | Cow of Animal
-    | Goat of Animal
-    | Other of string
-
 type Farm = {
     Name: string
-    Animals: FarmAnimal list
+    Animals: Animal list
 }

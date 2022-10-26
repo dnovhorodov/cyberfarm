@@ -1,21 +1,16 @@
 module Farmtrace.BusinessRules
 
 open System
-open Domain
-open DataAccess
 
-(*
-    Business rules for validating farm data
-*)
 [<AutoOpen>]
 module ActivePatterns = 
 
     let (|InvariantEqual|_|) (str: string) arg = 
         if String.Compare(str, arg, StringComparison.OrdinalIgnoreCase) = 0
             then Some() else None
-            
+
 [<AutoOpen>]
-module private FarmAnimal = 
+module Validation = 
     
     let validateCowMilking amount = 
         if amount >= 0 && amount <= 35
@@ -48,48 +43,3 @@ module private FarmAnimal =
         | InvariantEqual "Goat" ->
             milkAmount |> validateGoatMilking 
         | _ -> Error "Animal is not supported on the farm"
-
-    let createAnimal animalType id (feedings: Feeding list) (milkings: Milking list) =
-        match animalType with
-        | InvariantEqual "Cow" ->
-            Cow { Id = id; Type = animalType; Feedings = feedings; Milkings = milkings }
-        | InvariantEqual "Goat" ->
-            Goat { Id = id; Type = animalType; Feedings = feedings; Milkings = milkings }
-        | _ -> Other animalType
-
-(*
-    Public function to create a validated animal from raw input
-*)
-let create animalType id (feedings: ActionDto array) (milkings: ActionDto array) =
-    let feeds = 
-        feedings |> Array.choose(fun f -> 
-            (animalType, f.Amount) ||> validateFeeding
-            |> function
-            | Ok amount -> Some (Feeding (f.DateTime, amount))
-            | Error _ -> None
-        ) |> List.ofArray
-
-    let milks = 
-        milkings |> Array.choose(fun m -> 
-            (animalType, m.Amount) ||> validateMilking
-            |> function
-            | Ok amount -> Some (Milking (m.DateTime, amount))
-            | Error _ -> None
-        ) |> List.ofArray
-
-    createAnimal animalType id feeds milks
-
-(*
-    Parse JSON data to domain models
-*)
-let parse (data: FarmData.Root[]) =
-    data
-    |> Seq.map(fun farm -> 
-        {
-            Name = farm.Name
-            Animals = farm.Animals |> Array.map(fun animal ->
-                let feedings = animal.Feedings |> Array.map (fun f -> { DateTime = f.DateTime; Amount = f.Amount })
-                let milkings = animal.Milkings |> Array.map (fun m -> { DateTime = m.DateTime; Amount = m.Amount })
-                create animal.AnimalType animal.Id feedings milkings
-            ) |> List.ofArray
-        })
